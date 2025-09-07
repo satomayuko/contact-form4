@@ -1,0 +1,118 @@
+main {
+    padding-top: 99px;
+}
+
+html,
+body,
+main,
+.page-1512 {
+    background: #fff !important;
+}
+
+.confirm-page {
+    max-width: 1120px;
+    margin: 0 auto 80px;
+    padding: 0 24px;
+    background: #fff;
+}
+
+.confirm-title {
+    font-family: 'Inika', serif;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 1;
+    color: #8B7969;
+    text-align: center;
+    margin: 24px 0 28px;
+}
+
+.confirm-form {
+    max-width: 972px;
+    margin: 0 auto;
+}
+
+.confirm-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #E0DFDE;
+    background: #fff;
+    table-layout: fixed;
+}
+
+.confirm-table th,
+.confirm-table td {
+    padding: 18px 24px;
+    border-bottom: 1px solid #E0DFDE;
+    color: #6B5C4B;
+    vertical-align: top;
+    word-break: break-word;
+}
+
+.confirm-table th {
+    width: 32%;
+    background: #B9A99A;
+    color: #fff;
+    font-weight: 700;
+}
+
+.confirm-table tr:last-child th,
+.confirm-table tr:last-child td {
+    border-bottom: none;
+}
+
+.confirm-table td.is-pre {
+    white-space: normal;
+    text-indent: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 24px !important;
+}
+
+.confirm-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-top: 28px;
+}
+
+.btn-submit {
+    min-width: 120px;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 40px;
+    border: 1px solid #82756A;
+    border-radius: 6px;
+    background: #82756A;
+    color: #fff;
+    cursor: pointer;
+    transition: filter .15s ease;
+    font-size: 20px;
+}
+
+.btn-submit:hover {
+    filter: brightness(0.95);
+}
+
+.link-back {
+    border: none;
+    background: transparent;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    font-size: 20px;
+    color: #8B7969;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    height: auto;
+}
+
+@media (max-width: 760px) {
+
+    .confirm-table th,
+    .confirm-table td {
+        padding: 14px 12px;
+    }
+
+    .confirm-actions {
+        gap: 20px;
+    }
+}

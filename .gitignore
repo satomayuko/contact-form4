@@ -1,0 +1,32 @@
+# Laravel / Node
+/node_modules
+/vendor
+/public/hot
+/public/storage
+/storage/*.key
+
+# 環境ファイル
+.env
+.env.backup
+
+# キャッシュやログ
+.phpunit.result.cache
+npm-debug.log
+yarn-error.log
+
+# エディタ / OS
+/.idea
+/.vscode
+.DS_Store
+
+# Docker MySQL データ
+/docker/mysql/data/
+
+# 証明書・鍵
+*.pem
+*.key
+*.crt
+*.csr
+
+# Mac アプリ
+*.app

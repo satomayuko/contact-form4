@@ -1,0 +1,78 @@
+.thanks-page {
+    position: relative;
+    width: 1512px;
+    height: 982px;
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+}
+
+.thanks-page::before {
+    content: "Thank you";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Inika', serif;
+    font-weight: 400;
+    font-size: min(18vw, 280px);
+    line-height: 1;
+    color: #8B7969;
+    opacity: 0.08;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.thanks-message {
+    position: absolute;
+    left: 50%;
+    top: 461px;
+    transform: translateX(-50%);
+    margin: 0;
+    color: #8B7969;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    z-index: 1;
+}
+
+.thanks-actions {
+    position: absolute;
+    left: 50%;
+    top: 555px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.btn-home {
+    min-width: 140px;
+    height: 46px;
+    padding: 10px 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #82756A;
+    border-radius: 6px;
+    background: #82756A;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Inika', serif;
+    font-size: 16px;
+    letter-spacing: .08em;
+    transition: filter .15s ease;
+}
+
+.btn-home:hover {
+    filter: brightness(.95);
+}
+
+@media (max-width: 1200px) {
+    .thanks-message {
+        top: 56vh;
+    }
+
+    .thanks-actions {
+        top: calc(56vh + 94px);
+    }
+}
