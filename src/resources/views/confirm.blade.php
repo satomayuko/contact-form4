@@ -70,8 +70,8 @@
         <tr>
           <th>お問い合わせの種類</th>
           <td>
-            {{ $v('type') }}
-            <input type="hidden" name="type" value="{{ $v('type') }}">
+            {{ $inputs['type_label'] ?? '' }}
+            <input type="hidden" name="type" value="{{ $inputs['type'] ?? '' }}">
           </td>
         </tr>
         <tr>

@@ -5,11 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fashionablylate</title>
-
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
   <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap" rel="stylesheet" />
-
   @yield('css')
 </head>
 
@@ -25,36 +23,25 @@
         <a class="header__logo" href="/">Fashionablylate</a>
 
         @php
-          $onAdmin   = request()->routeIs('admin') || request()->is('admin');
-          $onLogin   = request()->is('login');
-          $onRegister= request()->is('register');
+          $onAdmin    = request()->routeIs('admin') || request()->is('admin');
+          $onLogin    = request()->is('login');
+          $onRegister = request()->is('register');
+          $onContact  = request()->is('/') || request()->is('confirm') || request()->is('thanks');
         @endphp
 
-        @if ($onAdmin)
+        @if ($onContact)
+          {{-- 問い合わせ系ではボタン非表示 --}}
+        @elseif ($onAdmin)
           @auth
             <form method="POST" action="{{ route('logout') }}" style="margin:0;">
               @csrf
               <button type="submit" class="header__login-btn">logout</button>
             </form>
-          @else
-            <a href="{{ route('login') }}" class="header__login-btn">login</a>
           @endauth
-
         @elseif ($onRegister)
           <a href="{{ route('login') }}" class="header__login-btn">login</a>
-
         @elseif ($onLogin)
           <a href="{{ route('register') }}" class="header__login-btn">register</a>
-
-        @else
-          @auth
-            <form method="POST" action="{{ route('logout') }}" style="margin:0;">
-              @csrf
-              <button type="submit" class="header__login-btn">logout</button>
-            </form>
-          @else
-            <a href="{{ route('login') }}" class="header__login-btn">login</a>
-          @endauth
         @endif
       </div>
       <div class="header-line"></div>

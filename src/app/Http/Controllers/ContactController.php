@@ -15,18 +15,18 @@ class ContactController extends Controller
         $q = Contact::query()->with('category');
 
         if ($kw = trim((string) $request->input('keyword', ''))) {
-            $kwHalf    = preg_replace('/\s+/u', ' ', mb_convert_kana($kw, 's'));
-            $kwNoSpace = str_replace(' ', '', $kwHalf);
-            $like        = '%' . $kw . '%';
-            $likeHalf    = '%' . $kwHalf . '%';
+            $kwHalf     = preg_replace('/\s+/u', ' ', mb_convert_kana($kw, 's'));
+            $kwNoSpace  = str_replace(' ', '', $kwHalf);
+            $like       = '%' . $kw . '%';
+            $likeHalf   = '%' . $kwHalf . '%';
             $likeNoSpace = '%' . $kwNoSpace . '%';
 
             $q->where(function ($qq) use ($like, $likeHalf, $likeNoSpace) {
                 $qq->where('last_name', 'LIKE', $like)
-                   ->orWhere('first_name', 'LIKE', $like)
-                   ->orWhereRaw("REPLACE(REPLACE(CONCAT(last_name, first_name), ' ', ''), '　', '') LIKE ?", [$likeNoSpace])
-                   ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", [$likeHalf])
-                   ->orWhere('email', 'LIKE', $like);
+                    ->orWhere('first_name', 'LIKE', $like)
+                    ->orWhereRaw("REPLACE(REPLACE(CONCAT(last_name, first_name), ' ', ''), '　', '') LIKE ?", [$likeNoSpace])
+                    ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", [$likeHalf])
+                    ->orWhere('email', 'LIKE', $like);
             });
         }
 
@@ -78,16 +78,19 @@ class ContactController extends Controller
             'address', 'building', 'type', 'content',
         ]);
 
+        $category = Category::find($inputs['type'] ?? null);
+        $inputs['type_label'] = $category?->content ?? '';
+
         return view('confirm', compact('inputs'));
     }
 
     private function buildStoreData(Request $request): array
     {
-        $map      = ['男性' => 1, '女性' => 2, 'その他' => 3];
-        $gender   = $map[$request->input('gender')] ?? 0;
-        $tel      = ($request->input('tel1') ?? '')
-                  . ($request->input('tel2') ?? '')
-                  . ($request->input('tel3') ?? '');
+        $map    = ['男性' => 1, '女性' => 2, 'その他' => 3];
+        $gender = $map[$request->input('gender')] ?? 0;
+        $tel    = ($request->input('tel1') ?? '')
+                . ($request->input('tel2') ?? '')
+                . ($request->input('tel3') ?? '');
 
         return [
             'last_name'   => $request->input('last_name'),
@@ -118,18 +121,18 @@ class ContactController extends Controller
         $q = Contact::query()->with('category');
 
         if ($kw = trim((string) $request->input('keyword', ''))) {
-            $kwHalf    = preg_replace('/\s+/u', ' ', mb_convert_kana($kw, 's'));
-            $kwNoSpace = str_replace(' ', '', $kwHalf);
-            $like        = '%' . $kw . '%';
-            $likeHalf    = '%' . $kwHalf . '%';
+            $kwHalf     = preg_replace('/\s+/u', ' ', mb_convert_kana($kw, 's'));
+            $kwNoSpace  = str_replace(' ', '', $kwHalf);
+            $like       = '%' . $kw . '%';
+            $likeHalf   = '%' . $kwHalf . '%';
             $likeNoSpace = '%' . $kwNoSpace . '%';
 
             $q->where(function ($qq) use ($like, $likeHalf, $likeNoSpace) {
                 $qq->where('last_name', 'LIKE', $like)
-                   ->orWhere('first_name', 'LIKE', $like)
-                   ->orWhereRaw("REPLACE(REPLACE(CONCAT(last_name, first_name), ' ', ''), '　', '') LIKE ?", [$likeNoSpace])
-                   ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", [$likeHalf])
-                   ->orWhere('email', 'LIKE', $like);
+                    ->orWhere('first_name', 'LIKE', $like)
+                    ->orWhereRaw("REPLACE(REPLACE(CONCAT(last_name, first_name), ' ', ''), '　', '') LIKE ?", [$likeNoSpace])
+                    ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", [$likeHalf])
+                    ->orWhere('email', 'LIKE', $like);
             });
         }
 

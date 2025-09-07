@@ -14,7 +14,6 @@ docker-compose up -d --build
 ```
 docker-compose exec php bash
 composer install
-
 ```
 
 ### .envファイルの作成と設定
