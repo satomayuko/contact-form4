@@ -51,7 +51,7 @@ php artisan key:generate
 - **Docker**（環境構築用：nginx, php, mysql）
 
 ## 🗺 ER図
-![ER図](./ERD.png)
+![ER図](/ERD.png)
 
 ## 🌐URL
 - 開発環境: http://localhost/

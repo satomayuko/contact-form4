@@ -29,4 +29,4 @@ yarn-error.log
 *.csr
 
 # Mac アプリ
-*.app
+*.app/contact-form4/
